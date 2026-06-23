@@ -1,0 +1,63 @@
+@model List<Product>
+
+
+@{
+
+}
+
+<div class="container mt-4">
+
+    <div class="card">
+        <div class="card-header">
+            <h5>
+                <i class="bi bi-plus-circle-fill"></i> اضافة منتج جديد
+            </h5>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+              @Html.AntiForgeryToken()
+
+              <div class="mb-3">
+                <label class="form-label">اسم المنتج</label>
+                <input type="text" asp-for="@Model.First().Name" placeholder="أدخل اسم المنتج" class="form-control" />
+              </div>
+
+               <div class="mb-3">
+                <label class="form-label">سعر المنتج</label>
+                <input type="number" asp-for="@Model.First().Price" placeholder="أدخل سعؤ المنتج" class="form-control" />
+              </div>
+
+               <div class="mb-3">
+                <label class="form-label">صورة المنتج</label>
+                <input type="text" asp-for="@Model.First().Image" placeholder="أدخل صورة المنتج" class="form-control" />
+              </div>
+
+              <div class="mb-3">
+               
+               <button class="btn btn-success px-4 fw-bload">حفظ المنتج</button>
+                
+              </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-lg-4 col-md-6 mt-4 mb-4">
+            <div class="card product-card h-100 shadow-sm">
+                <img src="~/images/@product.Image"
+                     class="img-thumbnail"
+                     style="width:100%; height:400px; object-fit:cover;" />
+
+                <div class="card-body text-center">
+                    <h4>@product.Name</h4>
+                    <h5>@product.Price ريال</h5>
+                </div>
+            </div>
+        </div>
+    }
+</div>
