@@ -14,12 +14,18 @@ public class ProductController : Controller
     public IActionResult Index()
     {
         var products = _context.Products.ToList();
-        return View("Create" , products);
+        return View(products);
     }
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    [HttpPost]
     public IActionResult Create(Product product)
     {
         _context.Products.Add(product);
         _context.SaveChanges();
-         return RedirectToAction("Index");
+        return RedirectToAction("Index");
     }
 }
