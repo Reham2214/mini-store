@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace mini_store.Models;
 public class Product
 {
@@ -6,5 +8,8 @@ public class Product
     public decimal Price {get; set;}
     public string? Image {get; set;}
 
+    public int CategoryId {get; set;}
 
+    [ForeignKey("CategoryId")]
+    public virtual Category Categories {get; set;}
 }

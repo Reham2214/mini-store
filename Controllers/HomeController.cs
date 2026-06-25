@@ -1,17 +1,17 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using mini_store.Models;
+using mini_store.Data;
 
 namespace mini_store.Controllers;
 
 public class HomeController : Controller
 {
-    private static dynamic[] _categories =
+    private readonly AppDbContext _context;
+    public HomeController(AppDbContext cn)
     {
-        new { Id = 0, Name = "إلكترونيات", Icon = "fa-solid fa-bolt-lightning" },
-        new { Id = 1, Name = "ملابس", Icon = "fa-solid fa-shirt" },
-        new { Id = 2, Name = "كتب", Icon = "fas fa-book-open" }
-    };
+        _context = cn;
+    }
     private static dynamic[] _products =
     {
         new { Id = 0, CategoryId = 0, Name = "هاتف ذكي", Price = 2500, Description = "هاتف ذكي بكاميرا عالية الدقة", Image = "phone.webp" },
@@ -21,8 +21,8 @@ public class HomeController : Controller
     };
     public IActionResult Index()
     {
-        ViewBag.CategoriesList = _categories;
-        return View();
+        var categories = _context.Categories.ToList();
+        return View(categories);
     }
 
     public IActionResult Privacy()

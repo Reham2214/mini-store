@@ -3,57 +3,54 @@ using mini_store.Data;
 using mini_store.Models;
 
 namespace mini_store.Controllers;
-public class ProductController : Controller
+public class CategoryController : Controller
 {
     private readonly AppDbContext _context;
-    public ProductController(AppDbContext cn)
+    public CategoryController(AppDbContext cn)
     {
         _context = cn;
     }
 
     public IActionResult Index()
     {
-        var products = _context.Products.ToList();
         var categories = _context.Categories.ToList();
-        ViewBag.Categories = categories;
-        return View(products);
+        return View(categories);
     }
 
     [HttpPost]
-    public IActionResult Create(Product product)
+    public IActionResult Create(Category category)
     {
-        _context.Products.Add(product);
+        _context.Categories.Add(category);
         _context.SaveChanges();
         return RedirectToAction("Index");
     }
+
     public IActionResult Delete(int id)
     {
-        var product = _context.Products.FirstOrDefault(p => p.Id == id);
-        if(product == null)
+        var category = _context.Categories.FirstOrDefault(c => c.Id == id);
+        if (category == null)
         {
             return NotFound();
         }
-        _context.Products.Remove(product);
+        _context.Categories.Remove(category);
         _context.SaveChanges();
         return RedirectToAction("Index");
     }
 
     public IActionResult Edit(int id)
     {
-        var product = _context.Products.FirstOrDefault(c => c.Id == id);
-        var categories = _context.Categories.ToList();
-        ViewBag.Categories = categories;
-        if (product == null)
+        var category = _context.Categories.FirstOrDefault(c => c.Id == id);
+        if (category == null)
         {
             return NotFound();
         }
-        return View(product);
+        return View(category);
     }
 
     [HttpPost]
-    public IActionResult Edit(Product product)
+    public IActionResult Edit(Category category)
     {
-        _context.Products.Update(product);
+        _context.Categories.Update(category);
         _context.SaveChanges();
         return RedirectToAction("Index");
     }
