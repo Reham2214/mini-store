@@ -63,6 +63,20 @@
     </div>
 
 </div>
+<div class="card mb-3 border-0 bg-light p-3 shadow-sm">
+    <form method="get" asp-action="Index" class="row g-3 align-items-end">
+        <div class="col-md-9">
+            <label class="form-label small fw-bold text-secondary">ابحث باسم المنتج</label>
+            <input type="text" name="searchTerm" value="@ViewBag.CurrentSearch" placeholder="اكتب اسم المنتج الذي تريد البحث عنه..." class="form-control" />
+        </div>
+        <div class="col-md-3 d-flex gap-2">
+            <button type="submit" class="btn btn-primary w-100 fw-bold">
+                <i class="bi bi-search"></i> بحث
+            </button>
+            <a asp-action="Index" class="btn btn-secondary">إلغاء</a>
+        </div>
+    </form>
+</div>
  <div class="card mt-5">
         <div class="card-body">
             <table class="table">

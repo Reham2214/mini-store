@@ -13,9 +13,17 @@ public class ProductController : Controller
         _webHostEnvironment = wsn;
     }
 
-    public IActionResult Index()
+    public IActionResult Index(string searchTerm)
     {
-        var products = _context.Products.ToList();
+        var productsQuery = _context.Products.AsQueryable();
+
+        if (!string.IsNullOrEmpty(searchTerm))
+        {
+            productsQuery= productsQuery.Where(p => p.Name.Contains(searchTerm));
+        }
+
+        ViewBag.CurrentSearch = searchTerm;
+        var products = productsQuery.ToList();
         ViewBag.Categories = _context.Categories.ToList();
         return View(products);
     }
