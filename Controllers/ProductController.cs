@@ -6,25 +6,48 @@ namespace mini_store.Controllers;
 public class ProductController : Controller
 {
     private readonly AppDbContext _context;
-    public ProductController(AppDbContext cn)
+    private readonly IWebHostEnvironment _webHostEnvironment;
+    public ProductController(AppDbContext cn, IWebHostEnvironment wsn)
     {
         _context = cn;
+        _webHostEnvironment = wsn;
     }
 
     public IActionResult Index()
     {
         var products = _context.Products.ToList();
-        var categories = _context.Categories.ToList();
-        ViewBag.Categories = categories;
+        ViewBag.Categories = _context.Categories.ToList();
         return View(products);
     }
 
     [HttpPost]
     public IActionResult Create(Product product)
     {
-        _context.Products.Add(product);
-        _context.SaveChanges();
-        return RedirectToAction("Index");
+        if(product.ImageFile != null)
+        {
+            var uploadFile = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+            if (!Directory.Exists(uploadFile))
+            {
+                Directory.CreateDirectory(uploadFile);
+            }
+            string extension = Path.GetExtension(product.ImageFile.FileName); //jpg
+            string uniqueFileName = Guid.NewGuid().ToString() + extension; //48379879.jpg
+            string filePath = Path.Combine(uploadFile , uniqueFileName);//wwwrooot/images/48379879.jpg
+            product.Image = uniqueFileName;
+            using(var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                product.ImageFile.CopyTo(fileStream);
+            }
+        }
+
+        if (ModelState.IsValid)
+        {
+            _context.Products.Add(product);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        ViewBag.Categories = _context.Categories.ToList();
+        return View("Index" , _context.Products.ToList());
     }
     public IActionResult Delete(int id)
     {
