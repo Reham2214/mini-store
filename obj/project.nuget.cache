@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rrO4iimm8dg=",
+  "dgSpecHash": "5pWUrk4dYeo=",
   "success": true,
   "projectFilePath": "C:\\Users\\bokhu\\mini-store\\mini-store.csproj",
   "expectedPackageFiles": [
@@ -56,6 +56,8 @@
     "C:\\Users\\bokhu\\.nuget\\packages\\humanizer.core.zh-cn\\2.14.1\\humanizer.core.zh-cn.2.14.1.nupkg.sha512",
     "C:\\Users\\bokhu\\.nuget\\packages\\humanizer.core.zh-hans\\2.14.1\\humanizer.core.zh-hans.2.14.1.nupkg.sha512",
     "C:\\Users\\bokhu\\.nuget\\packages\\humanizer.core.zh-hant\\2.14.1\\humanizer.core.zh-hant.2.14.1.nupkg.sha512",
+    "C:\\Users\\bokhu\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\10.0.9\\microsoft.aspnetcore.identity.entityframeworkcore.10.0.9.nupkg.sha512",
+    "C:\\Users\\bokhu\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\10.0.9\\microsoft.aspnetcore.identity.ui.10.0.9.nupkg.sha512",
     "C:\\Users\\bokhu\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.24\\microsoft.aspnetcore.razor.language.6.0.24.nupkg.sha512",
     "C:\\Users\\bokhu\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
     "C:\\Users\\bokhu\\.nuget\\packages\\microsoft.bcl.cryptography\\9.0.4\\microsoft.bcl.cryptography.9.0.4.nupkg.sha512",
@@ -83,6 +85,8 @@
     "C:\\Users\\bokhu\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\10.0.9\\microsoft.entityframeworkcore.relational.10.0.9.nupkg.sha512",
     "C:\\Users\\bokhu\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\10.0.9\\microsoft.entityframeworkcore.sqlserver.10.0.9.nupkg.sha512",
     "C:\\Users\\bokhu\\.nuget\\packages\\microsoft.extensions.dependencymodel\\10.0.9\\microsoft.extensions.dependencymodel.10.0.9.nupkg.sha512",
+    "C:\\Users\\bokhu\\.nuget\\packages\\microsoft.extensions.fileproviders.embedded\\10.0.9\\microsoft.extensions.fileproviders.embedded.10.0.9.nupkg.sha512",
+    "C:\\Users\\bokhu\\.nuget\\packages\\microsoft.extensions.localization\\10.0.9\\microsoft.extensions.localization.10.0.9.nupkg.sha512",
     "C:\\Users\\bokhu\\.nuget\\packages\\microsoft.identity.client\\4.73.1\\microsoft.identity.client.4.73.1.nupkg.sha512",
     "C:\\Users\\bokhu\\.nuget\\packages\\microsoft.identity.client.extensions.msal\\4.73.1\\microsoft.identity.client.extensions.msal.4.73.1.nupkg.sha512",
     "C:\\Users\\bokhu\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.7.1\\microsoft.identitymodel.abstractions.7.7.1.nupkg.sha512",
@@ -129,6 +133,18 @@
     "C:\\Users\\bokhu\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.6\\system.security.cryptography.protecteddata.9.0.6.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1510",
+      "level": "Warning",
+      "message": "PackageReference Microsoft.Extensions.Localization will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.",
+      "projectPath": "C:\\Users\\bokhu\\mini-store\\mini-store.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\bokhu\\mini-store\\mini-store.csproj",
+      "libraryId": "Microsoft.Extensions.Localization",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
     {
       "code": "NU1901",
       "level": "Warning",

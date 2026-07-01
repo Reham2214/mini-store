@@ -1,0 +1,52 @@
+@model mini_store.ViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "تسجيل ";
+    Layout="_Layout";
+}
+
+<div class="row justify-content-center m-5">
+   <div class="col-md-5">
+     <div class="card">
+        <div class="card-body">
+            <h2>إنشاء حساب جديد </h2>
+            <form asp-action="Register" method="post">
+                <div class="mb-3">
+                    <label class="form-label">الإسم الأول</label>
+                    <input asp-for="FirstName"  class="form-controller mb-3" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">الإسم الأخير</label>
+                    <input asp-for="LastName"  class="form-controller mb-3" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">الأيميل</label>
+                    <input asp-for="Email"  class="form-controller mb-3" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                 <div class="mb-3">
+                    <label class="form-label"> كلمة السر  </label>
+                    <input asp-for="Password"  class="form-controller mb-3" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                 <div class="mb-3">
+                    <label class="form-label">  تأكيد كلمة السر    </label>
+                    <input asp-for="ConfirmPaasword"  class="form-controller mb-3" />
+                    <span asp-validation-for="ConfirmPaasword" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-success w-100 mb-3">تسجيل الحساب</button>
+                <div asp-validation-summary="All"  class="text-danger mb-3"></div>
+                <div class="text-center">
+                    <p class="small mb-0">لديك حساب بالفعل ؟</p> <a asp-action="Login">تسجيل الدخول</a>
+                </div>
+            </form>
+        </div>
+     </div>
+   </div> 
+</div>

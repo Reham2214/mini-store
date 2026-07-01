@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+<data name="Home" xml:space="preserve"><value>Home</value></data>
+<data name="Categories" xml:space="preserve"><value>Categories</value></data>
+<data name="Products" xml:space="preserve"><value>Products</value></data>
+<data name="Reports" xml:space="preserve"><value>Reports</value></data>
+<data name="Logout" xml:space="preserve"><value>Logout</value></data>
+<data name="Dashboard" xml:space="preserve"><value>Dashboard</value></data>
+<data name="StoreSystem" xml:space="preserve"><value>Store System</value></data>
+<data name="ReportUsers" xml:space="preserve"><value>   Report Users    </value></data>
+
+</root>

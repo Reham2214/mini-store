@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using mini_store.Data;
 using mini_store.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace mini_store.Controllers;
 public class ProductController : Controller
@@ -13,6 +14,7 @@ public class ProductController : Controller
         _webHostEnvironment = wsn;
     }
 
+    [Authorize]
     public IActionResult Index(string searchTerm)
     {
         var productsQuery = _context.Products.AsQueryable();
