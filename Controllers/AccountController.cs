@@ -1,18 +1,19 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using mini_store.ViewModels;
+using mini_store.Models;
 using System.Threading.Tasks;
 
 namespace mini_store.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
-         private readonly UserManager<IdentityUser> _userManager; // أضفنا هذا السطر
+         private readonly UserManager<ApplicationUser> _userManager; // أضفنا هذا السطر
 
         // 2. حقن الأدوات في المُشيّد (Constructor)
-        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager) 
+        public AccountController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager) 
         {
             _signInManager = signInManager;
             _userManager = userManager; 
@@ -61,7 +62,6 @@ namespace mini_store.Controllers
             return RedirectToAction("Login", "Account");
         }
 
-        
         [HttpGet]
         public IActionResult Register()
         {
@@ -76,8 +76,10 @@ namespace mini_store.Controllers
         if (ModelState.IsValid)
         {
             // 2. إنشاء كائن مستخدم جديد وتعبئة بياناته
-            var user = new IdentityUser 
+            var user = new ApplicationUser 
             { 
+                FirstName = model.FirstName,
+                LastName = model.LastName,
                 UserName = model.Email, 
                 Email = model.Email 
             };

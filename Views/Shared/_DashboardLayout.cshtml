@@ -1,9 +1,6 @@
 @using System.Globalization
-@using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.Mvc.Localization
-using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
     @* حقن المترجم إذا أردت ترجمة الكلمات الثابتة لاحقاً *@
 @inject IViewLocalizer Localizer
@@ -116,10 +113,11 @@ using Microsoft.AspNetCore.Identity
             </li>
 
             <li class="nav-item mt-3">
-                <a class="nav-link text-danger">
-                    <i class="bi bi-box-arrow-right"></i>
-                    @SharedLocalizer["Logout"]
-                </a>
+                <form method="post" asp-action="Logout" asp-controller="Account">
+                    <div class="row">
+                        <button class="btn btn-link nav-link text-danger" type="submit">Logout</button>
+                    </div>
+                </form>
             </li>
 
              <li class="nav-item mt-3">

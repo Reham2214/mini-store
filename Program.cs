@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using mini_store.Data;
 using mini_store;
+using mini_store.Models;
 using Microsoft.AspNetCore.Identity;
 
 
@@ -36,7 +37,7 @@ options.RequestCultureProviders.Remove(browserLanguageProvider);
 }
 });
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => 
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => 
 {
     // تخفيف شروط كلمات المرور لتسهيل التجربة
     options.Password.RequireDigit = false;
