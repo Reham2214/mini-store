@@ -14,6 +14,7 @@ public class CategoryController : Controller
     public IActionResult Index()
     {
         var categories = _context.Categories.ToList();
+        Response.Cookies.Append("Customer", "Reham");
         return View(categories);
     }
 

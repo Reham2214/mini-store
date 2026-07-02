@@ -17,6 +17,9 @@ public class ProductController : Controller
     [Authorize]
     public IActionResult Index(string searchTerm)
     {
+        var CustomerName = Request.Cookies["Customer"];
+        Console.WriteLine(CustomerName);
+        
         var productsQuery = _context.Products.AsQueryable();
 
         if (!string.IsNullOrEmpty(searchTerm))
